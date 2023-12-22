@@ -5,9 +5,27 @@
 <p>Klientas: <b>{{ order.customer }}</b></p>
 <p>Data: <b>{{ order.date }}</b></p>
 <p>Būsena: <b>{{ order.status }}</b></p>
-<hr>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">Prekė</th>
+        <th scope="col">Kaina</th>
+        <th scope="col">Kiekis</th>
+        <th scope="col">Suma</th>
+    </tr>
+    </thead>
 {% for line in order.lines.all %}
-<p>{{ line }} - {{ line.suma }}</p>
+<tr>
+    <th>{{ line.product.name }}</th>
+    <td>{{ line.product.price }}</td>
+    <td>{{ line.quantity }}</td>
+    <td>{{ line.suma }}</td>
+</tr>
+    <!--<p>{{ line }} - {{ line.suma }}</p>-->
 {% endfor %}
-<p>BENDRA SUMA: <b>{{ order.total }}</b></p>
+<tr>
+    <th colspan="3">BENDRA KAINA:</th>
+    <td>{{ order.total }}</td>
+</tr>
+</table>
 {% endblock %}
