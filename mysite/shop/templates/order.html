@@ -5,4 +5,9 @@
 <p>Klientas: <b>{{ order.customer }}</b></p>
 <p>Data: <b>{{ order.date }}</b></p>
 <p>Būsena: <b>{{ order.status }}</b></p>
+<hr>
+{% for line in order.lines.all %}
+<p>{{ line }} - {{ line.suma }}</p>
+{% endfor %}
+<p>BENDRA SUMA: <b>{{ order.total }}</b></p>
 {% endblock %}
