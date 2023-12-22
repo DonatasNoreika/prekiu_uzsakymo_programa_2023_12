@@ -3,6 +3,6 @@
 
 {% block "content" %}
 {% for product in products %}
-<a><p>{{ product }}</p></a>
+<a href="{% url 'product' product.id %}"><p>{{ product }}</p></a>
 {% endfor %}
 {% endblock %}
